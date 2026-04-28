@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/taahir/Downloads/Edge-SDK-master/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
