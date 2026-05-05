@@ -1,0 +1,4 @@
+Must be run with:
+
+  --network host 
+  --privileged 
