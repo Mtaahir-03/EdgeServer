@@ -1,4 +1,6 @@
 Must be run with:
 
-  --network host 
+  --net=host 
   --privileged 
+
+must run mediamtx inside the container

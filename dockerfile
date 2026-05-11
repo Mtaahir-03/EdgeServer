@@ -10,11 +10,17 @@ RUN apt-get update && apt-get install -y \
     libavformat58 \
     libavutil56 \
     libswscale5 \
+    ffmpeg \
     ca-certificates \
+    iputils-ping \
+    net-tools \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-COPY build/edge_server .
+COPY build/server ./server
 
-ENTRYPOINT ["./edge_server"]
+RUN chmod +x ./server
+
+ENTRYPOINT ["./server"]
