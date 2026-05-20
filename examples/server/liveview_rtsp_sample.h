@@ -31,11 +31,14 @@ private:
 
     std::shared_ptr<edge_sdk::Liveview> liveview_;
 
-    edge_sdk::Liveview::LiveviewStatus liveview_status_;
+    // Stored as int so std::atomic<> works without a custom specialisation.
+    // The detached Start() thread reads this; LiveviewStatusCallback writes
+    // it -- hence the atomic to avoid a data race.
+    std::atomic<int> liveview_status_;
 
     RTSPStreamer rtsp_streamer_;
 };
 
-}
+}  // namespace edge_app
 
-#endif
+#endif  // __LIVEVIEW_RTSP_SAMPLE_H__
